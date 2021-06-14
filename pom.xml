@@ -6,11 +6,19 @@
     <artifactId>gauge-test</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+
+    <properties>
+        <java.version>11</java.version>
+        <gauge-java.version>0.7.15</gauge-java.version>
+        <gauge-maven-plugin.version>1.4.3</gauge-maven-plugin.version>
+        <selenium.version>3.12.0</selenium.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.thoughtworks.gauge</groupId>
             <artifactId>gauge-java</artifactId>
-            <version>[0.6.8,)</version>
+            <version>${gauge-java.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -22,7 +30,7 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>3.12.0</version>
+            <version>${selenium.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -34,6 +42,12 @@
             <groupId>org.reflections</groupId>
             <artifactId>reflections</artifactId>
             <version>0.9.10</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
@@ -51,7 +65,7 @@
             <plugin>
                 <groupId>com.thoughtworks.gauge.maven</groupId>
                 <artifactId>gauge-maven-plugin</artifactId>
-                <version>1.4.3</version>
+                <version>${gauge-maven-plugin.version}</version>
                 <executions>
                     <execution>
                         <phase>test</phase>
