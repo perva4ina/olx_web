@@ -21,6 +21,6 @@ public class MainPageSteps {
     public void openMainPage() {
         String appUrl = System.getenv("APP_URL");
         Driver.webDriver.get(appUrl + "/");
-        assertThat(Driver.webDriver.getTitle()).containsIgnoringCase("OLX");
+        assertThat(Driver.webDriver.getTitle()).containsIgnoringCase("eBay");
     }
 }
