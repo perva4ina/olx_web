@@ -3,6 +3,6 @@ Open Home Page
 
 Open Home Page
 -----------
-tags: smoke
+tags: web, ebay, smoke
 
 * Open home page
