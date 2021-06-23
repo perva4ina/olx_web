@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>ebay-test</artifactId>
+    <artifactId>common</artifactId>
 
     <parent>
         <groupId>com.gmail.perva4ina</groupId>
@@ -11,12 +11,6 @@
     </parent>
 
     <dependencies>
-        <!--region Project Modules-->
-        <dependency>
-            <groupId>com.gmail.perva4ina</groupId>
-            <artifactId>common</artifactId>
-        </dependency>
-        <!--endregion-->
         <!--region Spring-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

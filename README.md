@@ -1,6 +1,6 @@
 ## About this template
 
-This is a template to get started with a Gauge project that uses Selenium as the driver to interact with a web browser.
+This is a template to get started with a Gauge project that uses Selenium as the com.gmail.perva4ina.driver to interact with a web browser.
 
 ## Installing this template
 

@@ -1,6 +1,5 @@
-package pom;
+package com.gmail.perva4ina.pom;
 
-import lombok.AllArgsConstructor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
