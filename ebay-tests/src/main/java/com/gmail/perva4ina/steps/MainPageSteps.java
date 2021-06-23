@@ -1,5 +1,6 @@
 package com.gmail.perva4ina.steps;
 
+import com.gmail.perva4ina.properties.WebUiProperties;
 import com.thoughtworks.gauge.Step;
 import lombok.AllArgsConstructor;
 import org.assertj.core.api.SoftAssertions;
@@ -13,11 +14,11 @@ public class MainPageSteps {
 
     private final WebDriver driver;
     private final MainPage mainPage;
+    private final WebUiProperties webUiProperties;
 
     @Step("Open home page")
     public void openMainPage() {
-        String appUrl = System.getenv("APP_URL");
-        driver.get(appUrl + "/");
+        driver.get(webUiProperties.getUrl());
         assertThat(driver.getTitle()).containsIgnoringCase("eBay");
     }
 

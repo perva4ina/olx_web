@@ -11,6 +11,7 @@ public class WebDriverProperties {
 
     Name name;
     Mode mode;
+    int timeout;
     boolean headless;
 
     public enum Name {

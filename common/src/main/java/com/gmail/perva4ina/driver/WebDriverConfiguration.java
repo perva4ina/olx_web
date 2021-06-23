@@ -1,6 +1,8 @@
 package com.gmail.perva4ina.driver;
 
 
+import java.util.concurrent.TimeUnit;
+
 import com.gmail.perva4ina.properties.WebDriverProperties;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import lombok.extern.slf4j.Slf4j;
@@ -25,19 +27,23 @@ public class WebDriverConfiguration {
     @Bean(destroyMethod = "quit")
     @ConditionalOnMissingBean
     @ConditionalOnProperty(name = "web.driver.name", havingValue = "chrome")
-    public WebDriver chromeDriver(ChromeOptions options) {
+    public WebDriver chromeDriver(ChromeOptions options, WebDriverProperties webDriverProperties) {
         log.info("Creating Chrome driver");
         WebDriverManager.chromedriver().setup();
-        return new ChromeDriver(options);
+        WebDriver driver = new ChromeDriver(options);
+        setupDriver(driver, webDriverProperties);
+        return driver;
     }
 
     @Bean(destroyMethod = "quit")
     @ConditionalOnMissingBean
     @ConditionalOnProperty(name = "web.driver.name", havingValue = "firefox")
-    public WebDriver firefoxDriver(FirefoxOptions options) {
+    public WebDriver firefoxDriver(FirefoxOptions options, WebDriverProperties webDriverProperties) {
         log.info("Creating Firefox driver");
         WebDriverManager.firefoxdriver().setup();
-        return new FirefoxDriver(options);
+        WebDriver driver = new FirefoxDriver(options);
+        setupDriver(driver, webDriverProperties);
+        return driver;
     }
 
     @Bean
@@ -65,5 +71,10 @@ public class WebDriverConfiguration {
         options.setLogLevel(FirefoxDriverLogLevel.INFO);
         options.setHeadless(webDriverProperties.isHeadless());
         return options;
+    }
+
+    private void setupDriver(WebDriver driver, WebDriverProperties webDriverProperties) {
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(webDriverProperties.getTimeout(), TimeUnit.MILLISECONDS);
     }
 }
